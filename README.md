@@ -20,12 +20,15 @@ cd realtime-sms
 npm install
 
 ### Step 3: Configure Environment Variables
-Create a .env file in the root of your project directory:
+Create a .env file in the root of your project directory
+
 touch .env
-Add your Firebase Realtime Database URL to the .env file:
+
+Add your Firebase Realtime Database URL to the .env file
 
 ### Step 4: Initialize Firebase Admin SDK
 In the Firebase Console, navigate to "Project Settings" > "Service accounts" > "Generate new private key".
+
 Download the JSON file and save it in the project directory as serviceAccountKey.json.
 
 ### Step 5: Fetch and Format SMS Data
@@ -33,6 +36,7 @@ Run the script to fetch data from the sms collection, format the timestamp, and 
 
 Project Structure
 
+```bash
 Realtime-SMS/
 │
 ├── .env
