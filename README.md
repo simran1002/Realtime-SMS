@@ -13,6 +13,7 @@ This project is a Node.js application that interacts with Firebase to fetch and 
 ### Step 1: Clone the Repository
 
 git clone https://github.com/simran1002/Realtime-SMS.git
+
 cd realtime-sms
 
 ### Step 2: Install Dependencies
