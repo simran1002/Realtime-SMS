@@ -47,16 +47,3 @@ Realtime-SMS/
 ├── index.js
 ├── package.json
 └── README.md
-
-Additional Information
-Firebase Console: Firebase Console
-Node.js: Node.js
-Postman: Postman
-
-Author
-Simran Yadav
-
-License
-This project is licensed under the MIT License.
-
-This version includes corrections for the project structure section and completes the setup instructions. Make sure to replace placeholders with actual values for your Firebase project.
