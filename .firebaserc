@@ -1,9 +1,5 @@
 {
   "projects": {
-    "default": "realtime-sms-44821",
-    "realtime-sms": "realtime-sms-44821"
-  },
-  "targets": {},
-  "etags": {},
-  "dataconnectEmulatorConfig": {}
+    "default": "realtime-sms-44821"
+  }
 }

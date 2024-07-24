@@ -1,33 +1,25 @@
 require('dotenv').config();
-const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+const db = require('./firebaseAdmin');
+const ref = db.ref('sms');
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
-});
-
-const db = admin.database();
-
-async function fetchAndFormatSMSData() {
-  try {
-    const smsRef = db.ref('sms');
-    const snapshot = await smsRef.once('value');
+ref.once('value', snapshot => {
     const smsData = snapshot.val();
+    const formattedData = {};
 
-    const formattedSMS = {};
-    for (const [key, sms] of Object.entries(smsData)) {
-      formattedSMS[key] = {
-        ...sms,
-        formattedTimestamp: new Date(sms.timestamp).toISOString().replace('T', ' ').substr(0, 19)
-      };
+    for (let key in smsData) {
+        const sms = smsData[key];
+        const formattedTimestamp = new Date(sms.timestamp).toISOString().replace('T', ' ').split('.')[0];
+        formattedData[key] = {
+            ...sms,
+            formattedTimestamp: formattedTimestamp
+        };
     }
 
-    await db.ref('formatted_sms').set(formattedSMS);
-    console.log('Formatted SMS data saved successfully');
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-fetchAndFormatSMSData();
+    db.ref('formatted_sms').set(formattedData, error => {
+        if (error) {
+            console.error('Data could not be saved.', error);
+        } else {
+            console.log('Data saved successfully.');
+        }
+    });
+});
