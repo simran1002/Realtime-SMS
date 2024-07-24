@@ -15,7 +15,9 @@ This project is a Node.js application that interacts with Firebase to fetch and 
 ```bash
 git clone https://github.com/simran1002/Realtime-SMS.git
 cd realtime-sms
+```bash
 
+```bash
 Step 2: Install Dependencies
 npm install
 
